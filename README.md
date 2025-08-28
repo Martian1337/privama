@@ -41,11 +41,11 @@ curl -fsSL https://ollama.com/install.sh | sh
 ```
 - Install Ollama and pull multiple models
 ```
-curl -fsSL https://ollama.com/install.sh | sh && ollama pull codellama:70b codestral:22b
+curl -fsSL https://ollama.com/install.sh | sh && ollama pull llama2-uncensored:7b dolphin-mistral:7b
 ```
 - Install Ollama and run specific model
 ```
-curl -fsSL https://ollama.com/install.sh | sh && ollama run codellama:70b-instruct
+curl -fsSL https://ollama.com/install.sh | sh && ollama run llama2-uncensored:7b
 ```
 After installation, verify by running:
 ```
@@ -56,12 +56,12 @@ ollama --version
 ## Pull and Run Models
 - Pull one or multiple models:
 ```
-ollama pull codellama:70b
-ollama pull codellama:70b codestral:22b
+ollama pull llama2-uncensored:7b
+ollama pull llama2-uncensored:7b dolphin-mistral:7b
 ```
 - Run a specific model:
 ```
-ollama run codellama:70b-instruct
+ollama run llama2-uncensored:7b
 ```
 ***
 
@@ -72,7 +72,7 @@ curl -fsSL https://ollama.com/install.sh | sh && sudo dnf install -y wget jq && 
 LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("amd64.rpm$")) | .browser_download_url') && \
 wget -O void.rpm "$LATEST_RPM_URL" && \
 sudo dnf install -y ./void.rpm && \
-ollama run codellama:70b
+ollama run llama2-uncensored:7b
 ```
 Install Ollama, Void editor, and Open-WebUI with these commands:
 ```
@@ -80,7 +80,7 @@ curl -fsSL https://ollama.com/install.sh | sh && sudo dnf install -y wget jq && 
 LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("amd64.rpm$")) | .browser_download_url') && \
 wget -O void.rpm "$LATEST_RPM_URL" && \
 sudo dnf install -y ./void.rpm && \
-ollama run codellama:70b && \
+ollama run llama2-uncensored:7b && \
 sudo usermod -aG docker $USER && \
 newgrp docker <<EOF
 docker run -d -p 3000:3000 -e OLLAMA_API_BASE_URL=http://host.docker.internal:11434 --name open-webui ghcr.io/open-webui/open-webui:main
@@ -95,7 +95,7 @@ curl -fsSL https://ollama.com/install.sh | sh && sudo apt-get update && sudo apt
 LATEST_DEB_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("amd64.deb$")) | .browser_download_url') && \
 wget -O void.deb "$LATEST_DEB_URL" && \
 sudo apt-get install -y ./void.deb && \
-ollama run codellama:70b
+ollama run llama2-uncensored:7b
 ```
 Similarly, install Ollama, Void editor, and Open-WebUI on Debian-based systems:
 ```
@@ -112,11 +112,11 @@ EOF
 ## Setup on macOS
 - Install Ollama, Void and run specific model
 ```
-brew install ollama && ollama pull codellama:70b && ollama run codellama:70b-instruct
+brew install ollama && ollama pull llama2-uncensored:7b && ollama run llama2-uncensored:7b
 ```
 - Install Ollama, Void editor, and Open-WebUI
 ```
-brew install ollama && ollama pull codellama:70b && ollama run codellama:70b && \
+brew install ollama && ollama pull llama2-uncensored:7b && ollama run llama2-uncensored:7b && \
 brew install --cask docker && open /Applications/Docker.app && \
 docker run -d -p 3000:3000 -e OLLAMA_API_BASE_URL=http://host.docker.internal:11434 --name open-webui ghcr.io/open-webui/open-webui:main
 ```
