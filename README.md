@@ -69,16 +69,14 @@ ollama run llama2-uncensored:7b
 Install Ollama, Void and run specific model
 ```
 curl -fsSL https://ollama.com/install.sh | sh && sudo dnf install -y wget jq && \
-LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("amd64.rpm$")) | .browser_download_url') && \
-wget -O void.rpm "$LATEST_RPM_URL" && \
+LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("x86_64\\.rpm$")) | .browser_download_url') && wget -O void.rpm "$LATEST_RPM_URL" && \
 sudo dnf install -y ./void.rpm && \
 ollama run llama2-uncensored:7b
 ```
 Install Ollama, Void editor, and Open-WebUI with these commands:
 ```
 curl -fsSL https://ollama.com/install.sh | sh && sudo dnf install -y wget jq && \
-LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("amd64.rpm$")) | .browser_download_url') && \
-wget -O void.rpm "$LATEST_RPM_URL" && \
+LATEST_RPM_URL=$(wget -qO- https://api.github.com/repos/voideditor/binaries/releases/latest | jq -r '.assets[] | select(.name | test("x86_64\\.rpm$")) | .browser_download_url') && wget -O void.rpm "$LATEST_RPM_URL" && \
 sudo dnf install -y ./void.rpm && \
 ollama run llama2-uncensored:7b && \
 sudo usermod -aG docker $USER && \
